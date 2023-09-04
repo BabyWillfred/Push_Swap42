@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/04 13:52:18 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/04 16:43:40 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	sort_algorithm(t_stack **a, t_stack **b)
 {
-
-
+	int	i;
+	
+	i = count_nodes(a);
+	if (i <= 3)
+		if ()
 	return (0);
 }
 
