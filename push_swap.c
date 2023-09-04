@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/02 12:46:57 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/04 11:43:16 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int	main(int argc, char **argv)
 		a = fill_stack(matrix);
 		b = fill_stack(matrix);
 		z = repited_value_check(a);
-		// ft_printf("---Print A---\n");
-		// print_nodes(a);
-		// ft_printf("---Print B----\n");
-		// print_nodes(b);
-		// ft_printf("\n");
-		// ft_printf("\n");
+		ft_printf("---Print A---\n");
+		print_nodes(a);
+		ft_printf("---Print B----\n");
+		print_nodes(b);
+		ft_printf("\n");
+		ft_printf("\n");
 		// /*next 2 lines are test*/
 		// ft_printf("--PB--\n");
 		// push_b(&b, &a);
@@ -114,7 +114,7 @@ int	main(int argc, char **argv)
 		// ft_printf("\n");
 								/*next 2 lines are test*/
 		ft_printf("--RRA--\n");
-		reverse_rotate_a(a);
+		a = reverse_rotate_a(a);
 		ft_printf("----A----\n");
 		print_nodes(a);
 		ft_printf("----B-----\n");
