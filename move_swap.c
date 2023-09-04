@@ -6,12 +6,11 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:16:29 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/28 15:45:09 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:24:22 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 t_stack	*general_swap(t_stack *stack)
 {
@@ -36,8 +35,8 @@ t_stack	*swap_b(t_stack *b)
 	ft_printf("sb\n");
 	return (b);
 }
-/* la B no funciona porque esta vacia??*/
-/* hay que capar cuando sean valores de <3*/
+
+//Call function with &
 
 void	swap_ss(t_stack *a, t_stack *b)
 {

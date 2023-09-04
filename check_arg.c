@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/08/21 16:12:57 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:28:25 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ int	ft_check_arg_is_num(char *argv)
 	return (1);
 }
 
-
-
 /* &argv[1] = to memory directon of arguments */
 
 char	**ft_check_args(int argc, char **argv)
@@ -97,5 +95,3 @@ char	**ft_check_args(int argc, char **argv)
 	}
 	return (matrix);
 }
-
-
