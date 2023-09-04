@@ -6,13 +6,11 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/02 11:02:34 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:12:59 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-//CAMBIAR TODO A NODES
 
 void	print_nodes(t_stack *stack)
 {
@@ -36,10 +34,6 @@ int	count_nodes(t_stack *stack)
 	return (i);
 }
 
-//FILEAR X NODOS, CREAR UN NODO X CADA VALOR.
-//LINKEAR CADA NODO A PREV y NEXT
-//SI ES EL PRIMERO QUE SE GUARDE COMO FIRST Y SI ES EL ULTIMO QUE SE GUARDE COMO LAST
-
 t_stack	*fill_stack(char **matrix)
 {
 	int		i;
@@ -53,7 +47,6 @@ t_stack	*fill_stack(char **matrix)
 	while (matrix[i])
 	{
 		stack->content = ft_atoi(matrix[i]);
-		
 		if (matrix[i + 1] == NULL)
 			stack->next = NULL;
 		else
@@ -65,7 +58,6 @@ t_stack	*fill_stack(char **matrix)
 	}
 	return (stack2);
 }
-
 
 int	repited_value_check(t_stack *stack)
 {
@@ -92,4 +84,3 @@ int	repited_value_check(t_stack *stack)
 	}
 	return (0);
 }
-
