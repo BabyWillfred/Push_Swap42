@@ -1,8 +1,9 @@
 NAME = push_swap
 
 SRC	=	push_swap.c check_arg.c utils.c general_algorithm.c \
-		move_push.c move_rotate.c move_swap.c move_reverse_rotate.c  
-
+		move_push.c move_rotate.c move_swap.c move_reverse_rotate.c \  
+		debug_tools.c \ 
+#delete debug_tools.c before finishing the project
 OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror -I./Include
