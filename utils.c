@@ -6,20 +6,39 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/04 12:59:42 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:59:47 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_if_sorted()
+int	check_if_sorted(t_stack *stack)
 {
-	
+	t_stack	*tmp;
+
+	tmp = stack->next;
+	while (tmp)
+	{
+		if (stack->content > tmp->content)
+			return (NOT_SORTED);
+		stack = stack->next;
+		tmp = tmp->next;
+	}
+	return (SORTED);
 }
 
-void	free_malloc(t_stack *stack)
+void	free_malloc_stack(t_stack *stack) //NO SE SI FUNCIONA BIEN
 {
+	t_stack	*tmp;
 
+	tmp = stack->next;
+	if (tmp || tmp->next == NULL)
+	{
+		free (stack);
+		stack = tmp;
+		tmp = tmp->next;
+	}
+	free (tmp);
 }
 
 int	count_nodes(t_stack *stack)
