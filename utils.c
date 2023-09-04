@@ -6,13 +6,18 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/04 12:51:44 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/04 12:59:42 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_malloc()
+int	check_if_sorted()
+{
+	
+}
+
+void	free_malloc(t_stack *stack)
 {
 
 }
