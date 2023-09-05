@@ -6,12 +6,13 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/04 17:18:51 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:14:43 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/*
 int	sort_algorithm(t_stack **a, t_stack **b)
 {
 	int	i;
@@ -23,6 +24,7 @@ int	sort_algorithm(t_stack **a, t_stack **b)
 		if 
 	return (0);
 }
+*/
 
 int	main(int argc, char **argv)
 {
@@ -44,7 +46,16 @@ int	main(int argc, char **argv)
 			return (write(2, "Error\n", 6));
 		else if (check_if_sorted(a) == NOT_SORTED)
 		{
-			sort_algorithm(&a, &b)
+			/*sort_algorithm(&a, &b)*/
+			adri_de_los_cojones(a);
+			push_b(&b, &a);
+			push_b(&b, &a);
+			ft_printf("\n");
+			ft_printf("---------------------\n");
+			adri_de_los_cojones(b);
+			ft_printf("\n");
+			ft_printf("------------contenido---------\n");
+			ft_printf("contenido %i\n", basura(1, b));
 		}
 
 	}
