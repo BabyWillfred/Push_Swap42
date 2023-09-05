@@ -11,11 +11,6 @@
 /* ************************************************************************** */
 
 
-find max content return int
-
-find min content return int
-
-
 algorithm for 3
 
 if (a->content > a->next->content && a->next->content != max)
@@ -24,3 +19,34 @@ if (a->content > a->next->content && a->next->content != max)
 algorithm for 5
 
 algorithm general
+
+
+
+
+int	find_max_content(t_stack *stack)
+{
+	int	holder;
+
+	holder = INT_MIN;
+	while (stack->next != NULL)
+	{
+		if (stack->content > holder)
+			holder = stack->content;
+		stack = stack->next;
+	}
+	return (holder);
+}
+
+int	find_min_content(t_stack *stack)
+{
+	int	holder;
+
+	holder = INT_MAX;
+	while (stack->next != NULL)
+	{
+		if (stack->content < holder)
+			holder = stack->content;
+		stack = stack->next;
+	}
+	return (holder);
+}
