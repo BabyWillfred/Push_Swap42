@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/05 19:25:08 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/05 19:47:23 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void	adri_de_los_cojones(t_stack *stack);
 
 int		find_max_x_num(int num, t_stack *b);
 int		find_min_content(t_stack *stack);
+int		find_index(int num, t_stack *stack);
 
 #endif

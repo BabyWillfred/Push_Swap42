@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/05 19:14:43 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/05 20:17:05 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 			adri_de_los_cojones(b);
 			ft_printf("\n");
 			ft_printf("------------contenido---------\n");
-			ft_printf("contenido %i\n", basura(1, b));
+			ft_printf("contenido %i\n", find_max_x_num(1, b));
 		}
 
 	}
