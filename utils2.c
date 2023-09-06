@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/06 11:26:23 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:05:43 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	find_min_content(t_stack *stack)
 	return (holder);
 }
 
-
 int	find_max_content(t_stack *stack)
 {
 	int	holder;
@@ -41,34 +40,18 @@ int	find_max_content(t_stack *stack)
 	return (holder);
 }
 
-void	adri_de_los_cojones(t_stack *stack)
-{
-	int	i;
 
-	i = 0;
-	while (stack)
-	{
-		ft_printf("NODE: %i\n", i);
-		ft_printf("CONTENT: %i\n", stack->content);
-		ft_printf("QTTRA: %i\n", i);
-		ft_printf("\n");
-		stack = stack->next;
-		i++;
-	}
-}
-
-
-//Esto busca encima de que numero
+// Esto busca encima de que numero
 int	find_max_x_num(int num, t_stack *stack)
 {
-	int		i;
+	int	i;
 
 	i = INT_MIN;
 	if (num < find_min_content(stack))
 		return (find_max_content(stack));
 	while (stack)
 	{
-		//menor al numero pero el mayor de todo B
+		// menor al numero pero el mayor de todo B
 		if (stack->content < num && stack->content > i)
 			i = stack->content;
 		stack = stack->next;
@@ -76,8 +59,8 @@ int	find_max_x_num(int num, t_stack *stack)
 	return (i);
 }
 
-
-int find_index(int num, t_stack *stack)  //encontrar un numero y devolver su posicion en el stack
+int	find_index(int num, t_stack *stack)
+// encontrar un numero y devolver su posicion en el stack
 {
 	int i;
 
@@ -88,14 +71,14 @@ int find_index(int num, t_stack *stack)  //encontrar un numero y devolver su pos
 			return (i);
 		stack = stack->next;
 		i++;
-	}	
+	}
 	return (0);
 }
 
 t_moves	init_moves(void)
 {
 	t_moves	moves;
-	
+
 	moves.ra = 0;
 	moves.rb = 0;
 	moves.rr = 0;
@@ -111,7 +94,6 @@ t_moves	clac_total(t_moves mv)
 	mv.total = mv.ra + mv.rb + mv.rr + mv.rra + mv.rrb + mv.rrr;
 	return (mv);
 }
-
 
 /*
 algorithm for 3
@@ -168,7 +150,6 @@ while (stack)
 	ft_printf("NODE: %i\n", i);
 	ft_printf("CONTENT: %i\n", stack->content);
 	ft_printf("QTTRA: %i\n", i);
-
 	stack = stack->next;
 	i++;
 }
