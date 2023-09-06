@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/05 19:57:27 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:26:23 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,25 @@ int find_index(int num, t_stack *stack)  //encontrar un numero y devolver su pos
 	return (0);
 }
 
+t_moves	init_moves(void)
+{
+	t_moves	moves;
+	
+	moves.ra = 0;
+	moves.rb = 0;
+	moves.rr = 0;
+	moves.rra = 0;
+	moves.rrb = 0;
+	moves.rrr = 0;
+	moves.total = INT_MAX;
+	return (moves);
+}
 
-
+t_moves	clac_total(t_moves mv)
+{
+	mv.total = mv.ra + mv.rb + mv.rr + mv.rra + mv.rrb + mv.rrr;
+	return (mv);
+}
 
 
 /*
