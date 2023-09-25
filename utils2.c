@@ -75,6 +75,7 @@ int	find_index(int num, t_stack *stack)
 	return (0);
 }
 
+//inicializa mv
 t_moves	init_moves(void)
 {
 	t_moves	moves;
@@ -95,63 +96,21 @@ t_moves	clac_total(t_moves mv)
 	return (mv);
 }
 
-/*
-algorithm for 3
 
-if (a->content > a->next->content && a->next->content != max)
-	RA
+// in b it has to be like 9876 so when pushed to a is 6789
 
-algorithm for 5
+//if new min, push to b on top of max and rotate b to place it down
 
-algorithm general
-
-
-
-
-
-
-int	find_min_content(t_stack *stack)
+//we will sort all by the new max, new min or under max number i think
+calc lowest move
 {
-	int	holder;
+	store moves int
 
-	holder = INT_MAX;
-	while (stack->next != NULL)
+	while a stack exist
 	{
-		if (stack->content < holder)
-			holder = stack->content;
-		stack = stack->next;
+		find correct position in b
+		find amount of moves needed
+		store the amount and position of number index a stack
 	}
-	return (holder);
+	return (index with less moves)
 }
-
-
-
-
-
-
-counters x all movement
-2 push to b
-check the amount of movements per position on A to send them to B
-being the closes to the B-content from bottom ( 8 being smaller than 9 etc)
-
-saving in 2 variables the best one posible, if the actual number of movements
-is worse than the movements we have on the new number, replace it.
-
-
-
-
-
-
-
-i = 0;
-
-while (stack)
-{
-	ft_printf("NODE: %i\n", i);
-	ft_printf("CONTENT: %i\n", stack->content);
-	ft_printf("QTTRA: %i\n", i);
-	stack = stack->next;
-	i++;
-}
-
-*/
