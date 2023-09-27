@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/06 12:05:43 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:57:40 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	find_max_x_num(int num, t_stack *stack)
 			i = stack->content;
 		stack = stack->next;
 	}
+	//devuelve el numero, que aplicando el find_index nos dira cuantos ra o rb o rr ha de hacer 
 	return (i);
 }
 
@@ -76,7 +77,22 @@ int	find_index(int num, t_stack *stack)
 }
 
 //inicializa mv
-t_moves	init_moves(void)
+/*
+ra (rotate a): Shift up all elements of stack a by 1.
+The first element becomes the last one.
+
+rb (rotate b): Shift up all elements of stack b by 1. The first element becomes the last one.
+
+rr : ra and rb at the same time.
+
+rra (reverse rotate a): Shift down all elements of stack a by 1.
+The last element becomes the first one.
+
+rrb (reverse rotate b): Shift down all elements of stack b by 1. The last element becomes the first one.
+
+rrr : rra and rrb at the same time.
+*/
+t_moves	init_moves(void)	
 {
 	t_moves	moves;
 
@@ -101,16 +117,45 @@ t_moves	clac_total(t_moves mv)
 
 //if new min, push to b on top of max and rotate b to place it down
 
-//we will sort all by the new max, new min or under max number i think
-calc lowest move
-{
-	store moves int
+//we will sort all by the new max, new min or under its bigger number i think
 
-	while a stack exist
+
+/*sabiendo en que indice esta cada elemento, al aplicar find_max_x_num tendremos la posicion del indice correcto en b
+y calcularemos cuantos movimientos hacen falta para mover el numero al lugar correcto.
+*/
+
+
+t_moves	pending-name(t_stack *stack_a, t_stack *stack_b, t_moves mv)
+{
+
+	int	number_on_b;
+	int best_index_a;
+	int best_index_b;
+
+
+	while (stack_a)
 	{
-		find correct position in b
-		find amount of moves needed
-		store the amount and position of number index a stack
+		mv.ra = find_index(stack_a->content, stack_a);
+		number_on_b = find_max_x_num(stack_a->content, stack_b);
+		mv.rb = find_index(number_on_b, stack_b);
+		
 	}
-	return (index with less moves)
+
+//devuelve cantidad de movimientos
+	return (mv);
+}
+
+optim_moves()
+{
+	if (mv.ra == mv.rb)
+	{
+		mv.rr = mv.ra;
+		mv.rb = 0;
+		mv.ra = 0;
+	}
+	if (mv.ra > mv.rb)
+	{
+		
+	}
+	return (mv)
 }
