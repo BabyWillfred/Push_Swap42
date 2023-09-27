@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/06 12:05:22 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:07:02 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ int	sort_algorithm(t_stack **a, t_stack **b)
 	return (0);
 }
 */
+void	gen_algor(t_stack **stack_a, t_stack **stack_b)
+{
+	t_moves mv;
+
+	while (*stack_a)
+	{
+		mv = best_mv(*stack_a, *stack_b);
+		apply_moves(stack_a, stack_b, mv);
+		push_b(stack_b, stack_a);
+	}
+	mv = init_moves();
+	
+	while (*stack_b)
+		push_a(stack_b, stack_a);
+	while(find_index(find_min_content(*stack_a),*stack_a) > 0)
+		*stack_a = rotate_a(*stack_a);
+
+}
 
 int	main(int argc, char **argv)
 {
@@ -44,18 +62,14 @@ int	main(int argc, char **argv)
 		if (repited_value_check(a) == 1)
 			return (write(2, "Error\n", 6));
 		else if (check_if_sorted(a) == NOT_SORTED)
-		{
-			/*sort_algorithm(&a, &b)*/
-			
+		{			
 			push_b(&b, &a);
 			push_b(&b, &a);
-			ft_printf("\n");
-			ft_printf("---------------------\n");
-			
-			ft_printf("\n");
-			ft_printf("------------contenido---------\n");
-			ft_printf("contenido %i\n", find_max_x_num(1, b));
+			gen_algor(&a, &b);
 		}
+		print_nodes(a);
+		ft_printf("-------\n");
+		print_nodes(b);
 	}
 	return (0);
 }

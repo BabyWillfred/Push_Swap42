@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/27 15:57:40 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:44:26 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,27 +124,48 @@ t_moves	clac_total(t_moves mv)
 y calcularemos cuantos movimientos hacen falta para mover el numero al lugar correcto.
 */
 
-
-t_moves	pending-name(t_stack *stack_a, t_stack *stack_b, t_moves mv)
+t_moves	best_mv(t_stack *stack_a, t_stack *stack_b)
 {
 
+	t_moves	aux;
+	t_moves	mv;
+	int i;
 	int	number_on_b;
-	int best_index_a;
-	int best_index_b;
-
-
+	
+	aux.total = INT_MAX;
+	i = 0;
+	mv = init_moves();
 	while (stack_a)
 	{
-		mv.ra = find_index(stack_a->content, stack_a);
+		mv.ra = i;
 		number_on_b = find_max_x_num(stack_a->content, stack_b);
 		mv.rb = find_index(number_on_b, stack_b);
-		
+		mv = clac_total(mv);
+		if (mv.total < aux.total)
+			aux = mv;
+		stack_a = stack_a->next;
+		i++;
 	}
-
-//devuelve cantidad de movimientos
-	return (mv);
+	return (aux);
 }
 
+
+void	apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv)
+{
+	while (mv.ra > 0)
+	{
+		*stack_a = rotate_a(*stack_a);
+		mv.ra--;
+	}
+	while (mv.rb > 0)
+	{
+		*stack_b = rotate_b(*stack_b);
+		mv.rb--;
+	}
+}
+
+
+/*	----- APLICAR DESPUES DE QUE FUNCIONE CON RA Y RB -----
 optim_moves()
 {
 	if (mv.ra == mv.rb)
@@ -155,7 +176,16 @@ optim_moves()
 	}
 	if (mv.ra > mv.rb)
 	{
-		
+		mv.ra = mv.ra - mv.rb;
+		mv.rr = mv.rb;
+		mv.rb = 0;
 	}
+	if (mv.rb > mv.ra)
+	{
+		mv.rb = mv.rb - mv.ra;
+		mv.rr = mv.ra;
+		mv.ra = 0;
+	
 	return (mv)
 }
+*/

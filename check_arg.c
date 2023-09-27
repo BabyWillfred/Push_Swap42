@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/06 11:43:17 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:10:41 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,13 @@ char	**ft_check_args(int argc, char **argv)
 	while (matrix[x])
 	{
 		z = ft_check_arg_is_num(matrix[x]);
-		if (z == 1)
+		/*if (z == 1)
 			ft_printf("all ok on arg is num matrix: %d\n", x);
 		else
 		{
 			ft_printf("ERROR on arg is num matrix: %d\n", x);
 			return (0);
-		}
+		}*/
 		x++;
 	}
 	return (matrix);
