@@ -45,31 +45,35 @@ void	gen_algor(t_stack **stack_a, t_stack **stack_b)
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	char	**matrix;
 
-	a = NULL;
-	b = NULL;
-	a = malloc(sizeof(t_stack));
-	// maloc falla limpiar
+	stack_a = NULL;
+	stack_b = NULL;
+	stack_a = malloc(sizeof(t_stack));
+	if (!stack_a)
+	{
+		free_malloc_stack(stack_a);
+		return (write(2, "Error\n", 6));
+	}
 	if (argc < 2)
 		return (write(2, "Error\n", 6));
 	else
 	{
 		matrix = ft_check_args(argc, argv);
-		a = fill_stack(matrix);
-		if (repited_value_check(a) == 1)
+		stack_a = fill_stack(matrix);
+		if (repited_value_check(stack_a) == 1)
 			return (write(2, "Error\n", 6));
-		else if (check_if_sorted(a) == NOT_SORTED)
+		else if (check_if_sorted(stack_a) == NOT_SORTED)
 		{			
-			push_b(&b, &a);
-			push_b(&b, &a);
-			gen_algor(&a, &b);
+			push_b(&stack_b, &stack_a);
+			push_b(&stack_b, &stack_a);
+			gen_algor(&stack_a, &stack_b);
 		}
-		print_nodes(a);
+		print_nodes(stack_a);
 		ft_printf("-------\n");
-		print_nodes(b);
+		print_nodes(stack_b);
 	}
 	return (0);
 }
