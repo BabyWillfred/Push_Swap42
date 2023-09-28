@@ -162,11 +162,16 @@ void	apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv)
 		*stack_b = rotate_b(*stack_b);
 		mv.rb--;
 	}
+	while (mv.rr > 0)
+	{
+		rotate_rotate(stack_a, stack_b);
+		mv.rr--;
+	}
 }
 
 
 /*	----- APLICAR DESPUES DE QUE FUNCIONE CON RA Y RB -----
-optim_moves()
+t_moves	optim_moves(t_moves mv)
 {
 	if (mv.ra == mv.rb)
 	{
