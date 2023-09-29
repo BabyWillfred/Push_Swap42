@@ -6,24 +6,36 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 16:56:26 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 19:30:43 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 /*
-int	sort_algorithm(t_stack **a, t_stack **b)
+int	sort_3(t_stack **stack_a)
 {
 	int	i;
 
-	i = count_nodes(a);
+	i = count_nodes(*stack_a);
 	if (i <= 3)
-		if ()
-		if
+	{
+		while (check_if_sorted(*stack_a) == NOT_SORTED)
+		{
+			if ((*stack_a)->content != find_max_content(*stack_a) &&
+				(*stack_a)->next->content < (*stack_a)->content)
+				*stack_a = swap_a(*stack_a);
+			else
+				*stack_a = rotate_a(*stack_a);
+		}
+	}
+	else if (i < 5)
+	{
+		
+	}
+	
 	return (0);
-}
-*/
+}*/
+
 void	gen_algor(t_stack **stack_a, t_stack **stack_b)
 {
 	t_moves mv;
@@ -69,14 +81,12 @@ int	main(int argc, char **argv)
 			push_b(&stack_b, &stack_a);
 			push_b(&stack_b, &stack_a);
 			gen_algor(&stack_a, &stack_b);
+			//print_nodes(stack_a);
+			//ft_printf("----------/n");
 			free_malloc_stack(&stack_a);
 			free_malloc_stack(&stack_b);
 		}
-		// print_nodes(stack_a);
-		// ft_printf("----------/n");
 		// print_nodes(stack_b);
 	}
-		free_malloc_stack(&stack_a);
-		free_malloc_stack(&stack_b);
 	return (0);
 }

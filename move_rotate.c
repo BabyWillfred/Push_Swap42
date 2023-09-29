@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:16:56 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/06 11:43:18 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 19:04:18 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_stack	*rotate_a(t_stack *a)
 t_stack	*rotate_b(t_stack *b)
 {
 	b = general_rotate(b);
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 	return (b);
 }
 

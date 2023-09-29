@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 16:45:53 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 19:38:33 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int	check_if_sorted(t_stack *stack)
 
 void	free_malloc_stack(t_stack **stack)
 {
-    while (*stack != NULL)
+    while (*stack)
     {
-        t_stack *tmp = *stack;
+        t_stack *tmp;
+		
+		tmp = *stack;
         *stack = (*stack)->next;
         free (tmp);
     }
@@ -59,7 +61,10 @@ t_stack	*fill_stack(char **matrix)
 	i = 0;
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
+	{
+		free_malloc_stack(&stack);
 		return (NULL);
+	}
 	stack2 = stack;
 	while (matrix[i])
 	{
@@ -71,12 +76,13 @@ t_stack	*fill_stack(char **matrix)
 			stack->next = malloc(sizeof(t_stack));
 			if (!stack->next)
 			{
-				free_malloc_stack(&stack2);
+				free_malloc_stack(&stack);
 				return (NULL);
 			}
 			stack = stack->next;
 		}
 		i++;
+		free (stack);
 	}
 	return (stack2);
 }
