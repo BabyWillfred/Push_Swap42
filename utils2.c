@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/27 18:44:26 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:17:12 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,30 @@ t_moves	clac_total(t_moves mv)
 }
 
 
+t_moves	optim_moves(t_moves mv)
+{
+	if (mv.ra == mv.rb)
+	{
+		mv.rr = mv.ra;
+		mv.rb = 0;
+		mv.ra = 0;
+	}
+	if (mv.ra > mv.rb)
+	{
+		mv.ra = mv.ra - mv.rb;
+		mv.rr = mv.rb;
+		mv.rb = 0;
+	}
+	if (mv.rb > mv.ra)
+	{
+		mv.rb = mv.rb - mv.ra;
+		mv.rr = mv.ra;
+		mv.ra = 0;
+	}
+	return (mv);
+}
+
+
 // in b it has to be like 9876 so when pushed to a is 6789
 
 //if new min, push to b on top of max and rotate b to place it down
@@ -146,9 +170,9 @@ t_moves	best_mv(t_stack *stack_a, t_stack *stack_b)
 		stack_a = stack_a->next;
 		i++;
 	}
+	aux = optim_moves(aux);
 	return (aux);
 }
-
 
 void	apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv)
 {
@@ -170,27 +194,3 @@ void	apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv)
 }
 
 
-/*	----- APLICAR DESPUES DE QUE FUNCIONE CON RA Y RB -----
-t_moves	optim_moves(t_moves mv)
-{
-	if (mv.ra == mv.rb)
-	{
-		mv.rr = mv.ra;
-		mv.rb = 0;
-		mv.ra = 0;
-	}
-	if (mv.ra > mv.rb)
-	{
-		mv.ra = mv.ra - mv.rb;
-		mv.rr = mv.rb;
-		mv.rb = 0;
-	}
-	if (mv.rb > mv.ra)
-	{
-		mv.rb = mv.rb - mv.ra;
-		mv.rr = mv.ra;
-		mv.ra = 0;
-	
-	return (mv)
-}
-*/
