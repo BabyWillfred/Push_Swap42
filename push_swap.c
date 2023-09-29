@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/27 19:07:02 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:29:58 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,6 @@ int	main(int argc, char **argv)
 			push_b(&stack_b, &stack_a);
 			gen_algor(&stack_a, &stack_b);
 		}
-		print_nodes(stack_a);
-		ft_printf("-------\n");
-		print_nodes(stack_b);
 	}
 	return (0);
 }

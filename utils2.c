@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 14:17:12 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 14:35:22 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,19 +115,13 @@ t_moves	clac_total(t_moves mv)
 
 t_moves	optim_moves(t_moves mv)
 {
-	if (mv.ra == mv.rb)
-	{
-		mv.rr = mv.ra;
-		mv.rb = 0;
-		mv.ra = 0;
-	}
-	if (mv.ra > mv.rb)
+	if (mv.ra >= mv.rb)
 	{
 		mv.ra = mv.ra - mv.rb;
 		mv.rr = mv.rb;
 		mv.rb = 0;
 	}
-	if (mv.rb > mv.ra)
+	else if (mv.rb > mv.ra)
 	{
 		mv.rb = mv.rb - mv.ra;
 		mv.rr = mv.ra;
