@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/06 11:44:10 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:45:53 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,14 @@ int	check_if_sorted(t_stack *stack)
 	return (SORTED);
 }
 
-void	free_malloc_stack(t_stack *stack) // NO SE SI FUNCIONA BIEN
+void	free_malloc_stack(t_stack **stack)
 {
-	t_stack *tmp;
-
-	tmp = stack->next;
-	if (tmp || tmp->next == NULL)
-	{
-		free(stack);
-		stack = tmp;
-		tmp = tmp->next;
-	}
-	free(tmp);
+    while (*stack != NULL)
+    {
+        t_stack *tmp = *stack;
+        *stack = (*stack)->next;
+        free (tmp);
+    }
 }
 
 int	count_nodes(t_stack *stack)
@@ -62,7 +58,8 @@ t_stack	*fill_stack(char **matrix)
 
 	i = 0;
 	stack = malloc(sizeof(t_stack));
-	// free malloc
+	if (!stack)
+		return (NULL);
 	stack2 = stack;
 	while (matrix[i])
 	{
@@ -72,6 +69,11 @@ t_stack	*fill_stack(char **matrix)
 		else
 		{
 			stack->next = malloc(sizeof(t_stack));
+			if (!stack->next)
+			{
+				free_malloc_stack(&stack2);
+				return (NULL);
+			}
 			stack = stack->next;
 		}
 		i++;

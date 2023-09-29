@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/27 18:18:15 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:40:45 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_stack				*reverse_rotate_b(t_stack *b);
 void				reverse_rotate_rotate(t_stack **a, t_stack **b);
 int					check_if_sorted(t_stack *stack);
 int					sort_algorithm(t_stack **a, t_stack **b);
-void				free_malloc_stack(t_stack *stack);
+void				free_malloc_stack(t_stack **stack);
 t_moves				best_mv(t_stack *stack_a, t_stack *stack_b);
 t_moves				init_moves(void);
 void				apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv);

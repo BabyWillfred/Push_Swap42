@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 14:29:58 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:56:26 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	gen_algor(t_stack **stack_a, t_stack **stack_b)
 		push_a(stack_b, stack_a);
 	while(find_index(find_min_content(*stack_a),*stack_a) > 0)
 		*stack_a = rotate_a(*stack_a);
-
 }
 
 int	main(int argc, char **argv)
@@ -54,7 +53,7 @@ int	main(int argc, char **argv)
 	stack_a = malloc(sizeof(t_stack));
 	if (!stack_a)
 	{
-		free_malloc_stack(stack_a);
+		free_malloc_stack(&stack_a);
 		return (write(2, "Error\n", 6));
 	}
 	if (argc < 2)
@@ -70,7 +69,14 @@ int	main(int argc, char **argv)
 			push_b(&stack_b, &stack_a);
 			push_b(&stack_b, &stack_a);
 			gen_algor(&stack_a, &stack_b);
+			free_malloc_stack(&stack_a);
+			free_malloc_stack(&stack_b);
 		}
+		// print_nodes(stack_a);
+		// ft_printf("----------/n");
+		// print_nodes(stack_b);
 	}
+		free_malloc_stack(&stack_a);
+		free_malloc_stack(&stack_b);
 	return (0);
 }
