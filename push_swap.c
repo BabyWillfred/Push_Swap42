@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 19:30:43 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 19:41:49 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	sort_3(t_stack **stack_a)
 				*stack_a = rotate_a(*stack_a);
 		}
 	}
-	else if (i < 5)
+	else if (i <= 5)
 	{
 		
 	}
