@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 18:42:59 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:58:44 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ int					sort_3(t_stack **stack_a);
 int					find_max_x_num(int num, t_stack *b);
 int					find_min_content(t_stack *stack);
 int					find_index(int num, t_stack *stack);
+
 
 #endif

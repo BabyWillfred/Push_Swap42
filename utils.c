@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 19:38:33 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:46:31 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ t_stack	*fill_stack(char **matrix)
 			stack = stack->next;
 		}
 		i++;
-		free (stack);
 	}
 	return (stack2);
 }

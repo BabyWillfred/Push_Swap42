@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 19:41:49 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:40:11 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,25 @@ int	main(int argc, char **argv)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	stack_a = malloc(sizeof(t_stack));
-	if (!stack_a)
+	// stack_a = malloc(sizeof(t_stack));
+	// if (!stack_a)
+	// {
+	// 	free_malloc_stack(&stack_a);
+	// 	return (write(2, "Error\n", 6));
+	// }
+	if (argc < 2)
 	{
-		free_malloc_stack(&stack_a);
 		return (write(2, "Error\n", 6));
 	}
-	if (argc < 2)
-		return (write(2, "Error\n", 6));
 	else
 	{
 		matrix = ft_check_args(argc, argv);
 		stack_a = fill_stack(matrix);
 		if (repited_value_check(stack_a) == 1)
+		{
+			free_malloc_stack(&stack_a);
 			return (write(2, "Error\n", 6));
+		}
 		else if (check_if_sorted(stack_a) == NOT_SORTED)
 		{			
 			push_b(&stack_b, &stack_a);
@@ -84,7 +89,7 @@ int	main(int argc, char **argv)
 			//print_nodes(stack_a);
 			//ft_printf("----------/n");
 			free_malloc_stack(&stack_a);
-			free_malloc_stack(&stack_b);
+			///////////free_malloc_stack(&stack_b);
 		}
 		// print_nodes(stack_b);
 	}

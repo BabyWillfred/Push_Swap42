@@ -6,11 +6,21 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/27 18:10:41 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/09/29 21:00:56 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	free_char(char **s2, int k)
+{
+	while (k >= 0)
+	{
+		free(s2[k]);
+		k--;
+	}
+	free(s2);
+}
 
 long	ft_check_max_min(char *argv)
 {
@@ -53,7 +63,7 @@ int	ft_check_arg_is_num(char *argv)
 		{
 			z = ft_isdigit(argv[i]);
 			if (z == 0)
-				return (write(2, "ERROR FT_ISDIGIT REURNED FALSE\n", 32));
+				return (write(2, "error\n", 6));
 			i++;
 		}
 	}
@@ -83,13 +93,12 @@ char	**ft_check_args(int argc, char **argv)
 	while (matrix[x])
 	{
 		z = ft_check_arg_is_num(matrix[x]);
-		/*if (z == 1)
-			ft_printf("all ok on arg is num matrix: %d\n", x);
-		else
+		if (z == 0)
 		{
-			ft_printf("ERROR on arg is num matrix: %d\n", x);
+			free_char(matrix, (x -1));
+			ft_printf("error\n");
 			return (0);
-		}*/
+		}
 		x++;
 	}
 	return (matrix);
