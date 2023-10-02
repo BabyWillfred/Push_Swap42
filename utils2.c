@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 20:57:28 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:15:08 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,18 @@ t_moves	optim_moves(t_moves mv)
 		mv.rr = mv.ra;
 		mv.ra = 0;
 	}
+	if (mv.rra >= mv.rrb)
+	{
+		mv.rra = mv.rra - mv.rrb;
+		mv.rrr = mv.rrb;
+		mv.rrb = 0;
+	}
+	else if (mv.rrb > mv.rra)
+	{
+		mv.rrb = mv.rrb - mv.rra;
+		mv.rrr = mv.rra;
+		mv.rra = 0;
+	}
 	return (mv);
 }
 
@@ -141,6 +153,23 @@ t_moves	optim_moves(t_moves mv)
 /*sabiendo en que indice esta cada elemento, al aplicar find_max_x_num tendremos la posicion del indice correcto en b
 y calcularemos cuantos movimientos hacen falta para mover el numero al lugar correcto.
 */
+
+
+
+/* //////////////////////////////////////////////
+check if over or under half stack_t
+{
+	if (ra / rb > half stack)
+	{
+		rra = ra - half stack;
+		ra = 0; 
+	}
+
+
+	return ();
+}
+*/
+
 
 t_moves	best_mv(t_stack *stack_a, t_stack *stack_b)
 {
@@ -184,6 +213,21 @@ void	apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv)
 	{
 		rotate_rotate(stack_a, stack_b);
 		mv.rr--;
+	}
+	while (mv.rra > 0)
+	{
+		*stack_a = reverse_rotate_a(*stack_a);
+		mv.rra--;
+	}
+	while (mv.rrb > 0)
+	{
+		*stack_b = reverse_rotate_b(*stack_b);
+		mv.rrb--;
+	}
+	while (mv.rrr > 0)
+	{
+		reverse_rotate_rotate(stack_a, stack_b);
+		mv.rrr--;
 	}
 }
 

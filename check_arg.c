@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 21:00:56 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:07:23 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	ft_check_arg_is_num(char *argv)
 		{
 			z = ft_isdigit(argv[i]);
 			if (z == 0)
-				return (write(2, "error\n", 6));
+				return (0);
 			i++;
 		}
 	}
