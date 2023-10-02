@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/02 16:50:02 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/02 19:38:20 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void				free_malloc_stack(t_stack **stack);
 t_moves				best_mv(t_stack *stack_a, t_stack *stack_b);
 t_moves				init_moves(void);
 void				apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv);
-int					sort_3(t_stack **stack_a);
+void				sort_3(t_stack **stack_a);
+int					find_max_content(t_stack *stack);
+t_moves				optim_moves(t_moves mv);
+void				finish_sort(t_stack **stack_a, t_stack **stack_b);
 
 int					find_max_x_num(int num, t_stack *b);
 int					find_min_content(t_stack *stack);

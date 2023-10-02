@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 20:46:31 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:16:36 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,7 @@ int	repited_value_check(t_stack *stack)
 		{
 			stack = stack->next;
 			if (stack->content == content_cpy)
-			{
-				ft_printf("Repited value\n");
 				return (1);
-			}
 		}
 		stack = s_move->next;
 		s_move = s_move->next;

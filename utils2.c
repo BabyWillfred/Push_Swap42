@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/02 17:56:29 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/02 19:41:08 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,4 +241,40 @@ void	apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv)
 	}
 }
 
+void	finish_sort(t_stack **stack_a, t_stack **stack_b)
+{
+	while (*stack_b)
+		push_a(stack_b, stack_a);
+	while(find_index(find_min_content(*stack_a),*stack_a) > 0)
+		*stack_a = rotate_a(*stack_a);
+}
+void 	sort_3(t_stack **stack_a)
+{
+	while (check_if_sorted(*stack_a) == NOT_SORTED)
+	{
+		if ((*stack_a)->content != find_max_content(*stack_a) &&
+			(*stack_a)->next->content < (*stack_a)->content)
+				*stack_a = swap_a(*stack_a);
+		else
+			*stack_a = rotate_a(*stack_a);
+	}
+}
 
+
+/* ------------------- Pendiente de preparar ------------
+void	sort_4(&stack_a, stack_b)
+{
+	
+
+	sort_3(&stack_a);
+}
+
+
+
+void	sort_5(&stack_a, stack_b)
+{
+
+	sort_4(&stack_a, stack_b);
+}
+
+*/
