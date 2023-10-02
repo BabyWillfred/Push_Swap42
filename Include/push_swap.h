@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 20:58:44 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/02 16:50:02 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_moves
 	int				rrb;
 	int				rrr;
 	int				total;
+	int				nodes;
 }					t_moves;
 
 char				**ft_check_args(int argc, char **argv);

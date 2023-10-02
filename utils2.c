@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/02 16:15:08 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/02 17:56:29 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,15 +178,25 @@ t_moves	best_mv(t_stack *stack_a, t_stack *stack_b)
 	t_moves	mv;
 	int i;
 	int	number_on_b;
+	int index_b;
+	int stack_len;
 	
 	aux.total = INT_MAX;
 	i = 0;
-	mv = init_moves();
+	stack_len = count_nodes(stack_a);
 	while (stack_a)
 	{
-		mv.ra = i;
+		mv = init_moves();
+		if ( i > (stack_len / 2))
+			mv.rra = stack_len - i;
+		else
+			mv.ra = i;
 		number_on_b = find_max_x_num(stack_a->content, stack_b);
-		mv.rb = find_index(number_on_b, stack_b);
+		index_b = find_index(number_on_b, stack_b);
+		if ( index_b  > (count_nodes(stack_b) / 2))
+			mv.rrb = count_nodes(stack_b) - index_b;
+		else
+			mv.rb = index_b;
 		mv = clac_total(mv);
 		if (mv.total < aux.total)
 			aux = mv;
