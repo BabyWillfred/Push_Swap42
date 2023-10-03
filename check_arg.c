@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 14:19:43 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:37:12 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ int	ft_check_arg_is_num(char *argv)
 	return (1);
 }
 
-/* &argv[1] = to memory directon of arguments | also needed to free only of argc 2 because
+/* &argv[1] = to memory directon of arguments | 
+also needed to free only for argc 2 because
  was trying to free argv itself */
 
 char	**ft_check_args(int argc, char **argv)
@@ -107,7 +108,7 @@ char	**ft_check_args(int argc, char **argv)
 		if (z == 0)
 		{
 			if (argc == 2)
-				free_char(matrix, calc_matrix_size(matrix)-1);
+				free_char(matrix, calc_matrix_size(matrix) - 1);
 			return (NULL);
 		}
 		x++;

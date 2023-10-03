@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 12:00:35 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/02 18:16:36 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:01:59 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int	check_if_sorted(t_stack *stack)
 
 void	free_malloc_stack(t_stack **stack)
 {
-    while (*stack)
-    {
-        t_stack *tmp;
-		
+	t_stack	*tmp;
+
+	while (*stack)
+	{
 		tmp = *stack;
-        *stack = (*stack)->next;
-        free (tmp);
-    }
+		*stack = (*stack)->next;
+		free(tmp);
+	}
 }
 
 int	count_nodes(t_stack *stack)
@@ -51,6 +51,8 @@ int	count_nodes(t_stack *stack)
 	}
 	return (i);
 }
+
+
 
 t_stack	*fill_stack(char **matrix)
 {

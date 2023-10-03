@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 14:28:21 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:27:43 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ int	find_max_content(t_stack *stack)
 	return (holder);
 }
 
-
-// Esto busca encima de que numero
+/* Esto busca encima de que numero*/
 int	find_max_x_num(int num, t_stack *stack)
 {
 	int	i;
@@ -51,19 +50,19 @@ int	find_max_x_num(int num, t_stack *stack)
 		return (find_max_content(stack));
 	while (stack)
 	{
-		// menor al numero pero el mayor de todo B
+		/* menor al numero pero el mayor de todo B*/
 		if (stack->content < num && stack->content > i)
 			i = stack->content;
 		stack = stack->next;
 	}
-	//devuelve el numero, que aplicando el find_index nos dira cuantos ra o rb o rr ha de hacer 
+	/* devuelve el numero que aplicando el find_index nos dira cuantos ra o rb o rr ha de hacer*/
 	return (i);
 }
 
-// encontrar un numero y devolver su posicion en el stack
+/*// encontrar un numero y devolver su posicion en el stack*/
 int	find_index(int num, t_stack *stack)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (stack)
@@ -75,9 +74,9 @@ int	find_index(int num, t_stack *stack)
 	}
 	return (0);
 }
-
-//inicializa mv
 /*
+// inicializa mv
+
 ra (rotate a): Shift up all elements of stack a by 1.
 The first element becomes the last one.
 
@@ -93,7 +92,7 @@ rrb (reverse rotate b): Shift down all elements of stack b by 1. The last elemen
 rrr : rra and rrb at the same time.
 */
 
-t_moves	sinit_moves(void)	
+t_moves	init_moves(void)
 {
 	t_moves	moves;
 
@@ -112,7 +111,6 @@ t_moves	clac_total(t_moves mv)
 	mv.total = mv.ra + mv.rb + mv.rr + mv.rra + mv.rrb + mv.rrr;
 	return (mv);
 }
-
 
 t_moves	optim_moves(t_moves mv)
 {
@@ -142,59 +140,40 @@ t_moves	optim_moves(t_moves mv)
 	}
 	return (mv);
 }
-
-
+/*
 // in b it has to be like 9876 so when pushed to a is 6789
 
-//if new min, push to b on top of max and rotate b to place it down
+// if new min, push to b on top of max and rotate b to place it down
 
-//we will sort all by the new max, new min or under its bigger number i think
+// we will sort all by the new max, new min or under its bigger number i think
 
-
-/*sabiendo en que indice esta cada elemento, al aplicar find_max_x_num tendremos la posicion del indice correcto en b
+sabiendo en que indice esta cada elemento,
+	al aplicar find_max_x_num tendremos la posicion del indice correcto en b
 y calcularemos cuantos movimientos hacen falta para mover el numero al lugar correcto.
 */
 
-
-
-/* //////////////////////////////////////////////
-check if over or under half stack_t
-{
-	if (ra / rb > half stack)
-	{
-		rra = ra - half stack;
-		ra = 0; 
-	}
-
-
-	return ();
-}
-*/
-
-
 t_moves	best_mv(t_stack *stack_a, t_stack *stack_b)
 {
-
 	t_moves	aux;
 	t_moves	mv;
-	int i;
-	int	number_on_b;
-	int index_b;
-	int stack_len;
-	
+	int		i;
+	int		number_on_b;
+	int		index_b;
+	int		stack_len;
+
 	aux.total = INT_MAX;
 	i = 0;
 	stack_len = count_nodes(stack_a);
 	while (stack_a)
 	{
 		mv = init_moves();
-		if ( i > (stack_len / 2))
+		if (i > (stack_len / 2))
 			mv.rra = stack_len - i;
 		else
 			mv.ra = i;
 		number_on_b = find_max_x_num(stack_a->content, stack_b);
 		index_b = find_index(number_on_b, stack_b);
-		if ( index_b  > (count_nodes(stack_b) / 2))
+		if (index_b > (count_nodes(stack_b) / 2))
 			mv.rrb = count_nodes(stack_b) - index_b;
 		else
 			mv.rb = index_b;
@@ -246,28 +225,26 @@ void	finish_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	while (*stack_b)
 		push_a(stack_b, stack_a);
-	while(find_index(find_min_content(*stack_a),*stack_a) > 0)
+	while (find_index(find_min_content(*stack_a), *stack_a) > 0)
 		*stack_a = rotate_a(*stack_a);
 }
-void 	sort_3(t_stack **stack_a)
+void	sort_3(t_stack **stack_a)
 {
 	while (check_if_sorted(*stack_a) == NOT_SORTED)
 	{
-		if ((*stack_a)->content != find_max_content(*stack_a) &&
-			(*stack_a)->next->content < (*stack_a)->content)
-				*stack_a = swap_a(*stack_a);
+		if ((*stack_a)->content != find_max_content(*stack_a)
+			&& (*stack_a)->next->content < (*stack_a)->content)
+			*stack_a = swap_a(*stack_a);
 		else
 			*stack_a = rotate_a(*stack_a);
 	}
 }
 
-
 int	low_index(t_stack *stack)
 {
 	int	holder;
-	
+
 	holder = find_min_content(stack);
 	holder = find_index(holder, stack);
 	return (holder);
 }
-
