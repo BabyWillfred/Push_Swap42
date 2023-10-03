@@ -5,7 +5,7 @@ SRC	=	push_swap.c check_arg.c utils.c utils2.c \
 #delete debug_tools.c before finishing the project
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g -I./Include
+CFLAGS = -Wall -Wextra -Werror -I./Include
 all: makelib $(NAME)
 
 $(NAME): $(OBJ)

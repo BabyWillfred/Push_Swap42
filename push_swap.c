@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 13:36:38 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:30:23 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,3 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-
-//LISTA ERRORES ENCONTRDOS
-// doble -- con numero sigue trabajando en vez de parar.

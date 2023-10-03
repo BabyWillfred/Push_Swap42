@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 12:41:01 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:28:21 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int	find_max_x_num(int num, t_stack *stack)
 	return (i);
 }
 
-int	find_index(int num, t_stack *stack)
 // encontrar un numero y devolver su posicion en el stack
+int	find_index(int num, t_stack *stack)
 {
 	int i;
 
@@ -92,7 +92,8 @@ rrb (reverse rotate b): Shift down all elements of stack b by 1. The last elemen
 
 rrr : rra and rrb at the same time.
 */
-t_moves	init_moves(void)	
+
+t_moves	sinit_moves(void)	
 {
 	t_moves	moves;
 

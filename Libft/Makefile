@@ -57,7 +57,7 @@ OBJ = $(SRC:.c=.o)
 
 BON = $(BONUS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -g -I../Include
+CFLAGS = -Wall -Wextra -Werror -I../Include
 all: $(NAME)
 
 $(NAME): $(OBJ) 
