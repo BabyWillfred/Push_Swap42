@@ -6,11 +6,21 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/02 18:15:59 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:19:43 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	calc_matrix_size(char **matrix)
+{
+	int	size;
+
+	size = 0;
+	while (matrix[size] != NULL)
+		size++;
+	return (size);
+}
 
 static void	free_char(char **s2, int k)
 {
@@ -74,7 +84,8 @@ int	ft_check_arg_is_num(char *argv)
 	return (1);
 }
 
-/* &argv[1] = to memory directon of arguments */
+/* &argv[1] = to memory directon of arguments | also needed to free only of argc 2 because
+ was trying to free argv itself */
 
 char	**ft_check_args(int argc, char **argv)
 {
@@ -95,8 +106,9 @@ char	**ft_check_args(int argc, char **argv)
 		z = ft_check_arg_is_num(matrix[x]);
 		if (z == 0)
 		{
-			free_char(matrix, (x -1));
-			return (0);
+			if (argc == 2)
+				free_char(matrix, calc_matrix_size(matrix)-1);
+			return (NULL);
 		}
 		x++;
 	}

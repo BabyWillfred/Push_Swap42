@@ -57,7 +57,7 @@ OBJ = $(SRC:.c=.o)
 
 BON = $(BONUS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -I../Include
+CFLAGS = -Wall -Wextra -Werror -g -I../Include
 all: $(NAME)
 
 $(NAME): $(OBJ) 
@@ -69,7 +69,7 @@ bonus: .bonus
 	ar -crs $(NAME) $(OBJ) $(BON)
 	@touch .bonus
 
-%.o: %.c ./Include/libft.h Makefile
+%.o: %.c ../Include/libft.h Makefile
 	cc $(CFLAGS) -c $< -o $@ 
 
 re: fclean all

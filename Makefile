@@ -5,7 +5,7 @@ SRC	=	push_swap.c check_arg.c utils.c utils2.c \
 #delete debug_tools.c before finishing the project
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -I./Include
+CFLAGS = -Wall -Wextra -Werror -g -I./Include
 all: makelib $(NAME)
 
 $(NAME): $(OBJ)
@@ -14,8 +14,8 @@ $(NAME): $(OBJ)
 makelib: 
 	$(MAKE) -C ./libft 
 
-%.o: %.c libft.h push_swap.h Makefile
-	cc $(CFLAGS) -c $@ -o $< 
+%.o: %.c Makefile ./Include/libft.h ./Include/push_swap.h
+	cc $(CFLAGS) -c $< -o $@ 
 
 re: fclean all
 

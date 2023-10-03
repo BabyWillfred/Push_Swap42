@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/02 19:41:08 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 12:41:01 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -261,20 +261,12 @@ void 	sort_3(t_stack **stack_a)
 }
 
 
-/* ------------------- Pendiente de preparar ------------
-void	sort_4(&stack_a, stack_b)
+int	low_index(t_stack *stack)
 {
+	int	holder;
 	
-
-	sort_3(&stack_a);
+	holder = find_min_content(stack);
+	holder = find_index(holder, stack);
+	return (holder);
 }
 
-
-
-void	sort_5(&stack_a, stack_b)
-{
-
-	sort_4(&stack_a, stack_b);
-}
-
-*/
