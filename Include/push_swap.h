@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 16:55:53 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:00:28 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ void				algor_3(t_stack **stack_a, t_stack **stack_b);
 void				order_func(t_stack **stack_a, t_stack **stack_b);
 int					repited_value_check(t_stack *stack);
 t_moves				clac_total(t_moves mv);
+char				**check_and_free(char **matrix, int flag);
 
 #endif
