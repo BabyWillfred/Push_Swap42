@@ -1,6 +1,6 @@
 NAME = push_swap
 
-SRC	=	push_swap.c check_arg.c utils.c utils2.c utils3.c \
+SRC	=	push_swap.c check_arg.c utils.c utils2.c utils3.c utils4.c utils5.c \
 		move_push.c move_rotate.c move_swap.c move_reverse_rotate.c debug_tools.c 
 #delete debug_tools.c before finishing the project
 OBJ = $(SRC:.c=.o)

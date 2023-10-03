@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:36:09 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 15:54:38 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:49:35 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 typedef struct s_stack
 {
 	int				content;
-	// int				index;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -60,7 +59,7 @@ int					sort_algorithm(t_stack **a, t_stack **b);
 void				free_malloc_stack(t_stack **stack);
 t_moves				best_mv(t_stack *stack_a, t_stack *stack_b);
 t_moves				init_moves(void);
-void				apply_moves(t_stack **stack_a, t_stack **stack_b, t_moves mv);
+void				apply_moves(t_stack **a, t_stack **b, t_moves mv);
 void				sort_3(t_stack **stack_a);
 int					find_max_content(t_stack *stack);
 t_moves				optim_moves(t_moves mv);
@@ -75,6 +74,7 @@ void				gen_algor(t_stack **stack_a, t_stack **stack_b);
 void				algor_5(t_stack **stack_a, t_stack **stack_b);
 void				algor_3(t_stack **stack_a, t_stack **stack_b);
 void				order_func(t_stack **stack_a, t_stack **stack_b);
-
+int					repited_value_check(t_stack *stack);
+t_moves				clac_total(t_moves mv);
 
 #endif
