@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 16:50:56 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:57:49 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,5 +119,6 @@ t_moves	init_moves(void)
 
 sabiendo en que indice esta cada elemento,
 	al aplicar find_max_x_num tendremos la posicion del indice correcto en b
-y calcularemos cuantos movimientos hacen falta para mover el numero al lugar correcto.
+y calcularemos cuantos movimientos hacen falta para mover el numero al lugar 
+correcto.
 */

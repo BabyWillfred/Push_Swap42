@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:47:03 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 16:50:28 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 17:40:23 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,38 @@ t_moves	clac_total(t_moves mv)
 {
 	mv.total = mv.ra + mv.rb + mv.rr + mv.rra + mv.rrb + mv.rrr;
 	return (mv);
+}
+
+t_moves	best_mv(t_stack *stack_a, t_stack *stack_b, int stack_len)
+{
+	t_moves	aux;
+	t_moves	mv;
+	int		i;
+	int		number_on_b;
+	int		index_b;
+
+	aux.total = INT_MAX;
+	i = 0;
+	stack_len = count_nodes(stack_a);
+	while (stack_a)
+	{
+		mv = init_moves();
+		if (i > (stack_len / 2))
+			mv.rra = stack_len - i;
+		else
+			mv.ra = i;
+		number_on_b = find_max_x_num(stack_a->content, stack_b);
+		index_b = find_index(number_on_b, stack_b);
+		if (index_b > (count_nodes(stack_b) / 2))
+			mv.rrb = count_nodes(stack_b) - index_b;
+		else
+			mv.rb = index_b;
+		mv = clac_total(mv);
+		if (mv.total < aux.total)
+			aux = mv;
+		stack_a = stack_a->next;
+		i++;
+	}
+	aux = optim_moves(aux);
+	return (aux);
 }

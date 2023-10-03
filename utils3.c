@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 15:32:50 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 16:45:54 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:56:17 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,15 @@ void	gen_algor(t_stack **stack_a, t_stack **stack_b)
 {
 	t_moves	mv;
 	int		i;
+	int		stack_len;
 
+	stack_len = 0;
 	push_b(stack_b, stack_a);
 	push_b(stack_b, stack_a);
 	i = count_nodes(*stack_a);
 	while (*stack_a)
 	{
-		mv = best_mv(*stack_a, *stack_b);
+		mv = best_mv(*stack_a, *stack_b, stack_len);
 		apply_moves(stack_a, stack_b, mv);
 		push_b(stack_b, stack_a);
 	}

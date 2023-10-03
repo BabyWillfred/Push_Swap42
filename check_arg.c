@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 15:37:12 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:36:43 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,8 @@ char	**ft_check_args(int argc, char **argv)
 	if (argc == 2)
 	{
 		matrix = ft_split(argv[1], ' ');
+		 if (matrix[x] == 0)
+		 	return (NULL);
 	}
 	else if (argc > 2)
 		matrix = &argv[1];
