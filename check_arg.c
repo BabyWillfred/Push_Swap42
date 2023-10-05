@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 12:47:48 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/05 13:04:39 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:12:39 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	calc_matrix_size(char **matrix)
 	return (size);
 }
 
-static void	free_char(char **s2, int k)
+void	free_char(char **s2, int k)
 {
 	while (k >= 0)
 	{
@@ -100,10 +100,8 @@ char	**ft_check_args(int argc, char **argv)
 	if (argc == 2)
 	{
 		matrix = ft_split(argv[1], ' ');
-		{
-			if (matrix[0] == 0)
-				return (NULL);
-		}
+		if (matrix[0] == 0)
+			return (NULL);
 	}
 	else if (argc > 2)
 		matrix = &argv[1];

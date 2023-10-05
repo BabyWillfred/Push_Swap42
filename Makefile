@@ -5,7 +5,7 @@ SRC	=	push_swap.c check_arg.c utils.c utils2.c utils3.c utils4.c utils5.c \
 #delete debug_tools.c before finishing the project
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -I./Include
+CFLAGS = -Wall -Wextra -Werror -I./Include
 all: makelib $(NAME)
 
 $(NAME): $(OBJ)
