@@ -12,7 +12,7 @@ $(NAME): $(OBJ)
 	cc $(CFLAGS) $(OBJ) ./libft/libft.a -o $(NAME)
 
 makelib: 
-	$(MAKE) -C ./libft 
+	$(MAKE) -C ./libft
 
 %.o: %.c Makefile ./Include/libft.h ./Include/push_swap.h
 	cc $(CFLAGS) -c $< -o $@ 

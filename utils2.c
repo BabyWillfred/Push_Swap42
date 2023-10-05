@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 16:57:49 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:46:50 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	find_max_x_num(int num, t_stack *stack)
 	return (i);
 }
 
-/*// encontrar un numero y devolver su posicion en el stack*/
+/* find num and return stack position*/
 int	find_index(int num, t_stack *stack)
 {
 	int	i;
