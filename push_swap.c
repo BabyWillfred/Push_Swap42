@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/05 15:16:54 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:18:29 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv)
 		if (matrix == NULL)
 			return (write(2, "Error\n", 6));
 		stack_a = fill_stack(matrix);
-		if(argc == 2)
+		if (argc == 2)
 			free_char(matrix, calc_matrix_size(matrix) - 1);
 		if (repited_value_check(stack_a) == 1)
 		{
