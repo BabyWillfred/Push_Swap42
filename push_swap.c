@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:34:33 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/05 15:18:29 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:39:43 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 			free_char(matrix, calc_matrix_size(matrix) - 1);
 		if (repited_value_check(stack_a) == 1)
-		{
-			free_malloc_stack(&stack_a);
-			return (write(2, "Error\n", 6));
-		}
+			return (write(2, "Error\n", 6), free_malloc_stack(&stack_a), 0);
 		else if (check_if_sorted(stack_a) == NOT_SORTED)
 			order_func(&stack_a, &stack_b);
 		free_malloc_stack(&stack_a);
