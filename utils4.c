@@ -6,11 +6,16 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:33:40 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/03 17:34:02 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:35:09 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*Not checking if i can do rra when better
+Thats why is not 100% perfect. Found after 
+setting up evaluations and need 2 days if 
+i want to redo the project (intra things) */
 
 void	finish_sort(t_stack **stack_a, t_stack **stack_b)
 {
