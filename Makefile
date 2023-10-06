@@ -1,8 +1,8 @@
 NAME = push_swap
 
 SRC	=	push_swap.c check_arg.c utils.c utils2.c utils3.c utils4.c utils5.c \
-		move_push.c move_rotate.c move_swap.c move_reverse_rotate.c debug_tools.c 
-#delete debug_tools.c before finishing the project
+		move_push.c move_rotate.c move_swap.c move_reverse_rotate.c
+
 OBJ = $(SRC:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror -I./Include
@@ -27,4 +27,4 @@ clean:
 fclean: clean makefclean
 	rm -rf $(NAME)
 
-.PHONY: all re clean fclean bonus
+.PHONY: all re clean fclean

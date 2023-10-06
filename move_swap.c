@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:16:29 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/27 19:15:34 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:41:48 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_stack	*swap_b(t_stack *b)
 	return (b);
 }
 
-// Call function with &
+/*Call function with & so we have directions of pointer*/
 
 void	swap_ss(t_stack *a, t_stack *b)
 {

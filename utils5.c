@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:47:03 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/05 16:05:46 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:42:11 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ t_moves	clac_total(t_moves mv)
 	return (mv);
 }
 
-/*si peta x lo que sea, el i =-1 y el ++i antes era un i++ al final*/
 t_moves	best_mv(t_stack *a, t_stack *b, int stack_len, int indx_b)
 {
 	t_moves	aux;

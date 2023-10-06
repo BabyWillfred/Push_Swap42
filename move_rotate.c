@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 13:16:56 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/09/29 19:04:18 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:41:36 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_stack	*rotate_b(t_stack *b)
 	return (b);
 }
 
-// Call function with &
+/*Call function with & so we have directions of pointer*/
 
 void	rotate_rotate(t_stack **a, t_stack **b)
 {

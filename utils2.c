@@ -6,7 +6,7 @@
 /*   By: gforns-s <gforns-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 17:07:31 by gforns-s          #+#    #+#             */
-/*   Updated: 2023/10/05 15:46:50 by gforns-s         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:40:22 by gforns-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,14 @@ int	find_max_content(t_stack *stack)
 	return (holder);
 }
 
-/* Esto busca encima de que numero*/
+/* Serch correct position for number at stack, if new min,
+return max as a index
+Else, if stack->content is smaller than num & stack->content > than i 
+(i being old stack->content) replace i with new content bigger than last 
+but smaller that num we are searching.
+Then returns the number so when we apply find_index we will get its index.
+*/
+
 int	find_max_x_num(int num, t_stack *stack)
 {
 	int	i;
@@ -50,13 +57,10 @@ int	find_max_x_num(int num, t_stack *stack)
 		return (find_max_content(stack));
 	while (stack)
 	{
-		/* menor al numero pero el mayor de todo B*/
 		if (stack->content < num && stack->content > i)
 			i = stack->content;
 		stack = stack->next;
 	}
-	/* devuelve el numero que aplicando el find_index nos dira
-	 cuantos ra o rb o rr ha de hacer*/
 	return (i);
 }
 
@@ -77,8 +81,6 @@ int	find_index(int num, t_stack *stack)
 }
 
 /*
-inicializa mv
-
 ra (rotate a): Shift up all elements of stack a by 1.
 The first element becomes the last one.
 
@@ -109,16 +111,3 @@ t_moves	init_moves(void)
 	moves.total = INT_MAX;
 	return (moves);
 }
-
-/*
-// in b it has to be like 9876 so when pushed to a is 6789
-
-// if new min, push to b on top of max and rotate b to place it down
-
-// we will sort all by the new max, new min or under its bigger number i think
-
-sabiendo en que indice esta cada elemento,
-	al aplicar find_max_x_num tendremos la posicion del indice correcto en b
-y calcularemos cuantos movimientos hacen falta para mover el numero al lugar 
-correcto.
-*/
